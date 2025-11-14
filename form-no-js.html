@@ -39,17 +39,17 @@
                                 <legend>I'll get back to you:</legend>
                                 <div class="form-group">
                                     <label for="name">Name:
-                                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                                    <input type="text" name="name" id="name" placeholder="Your Name" minlength="2" maxlength="50" pattern="[A-Za-z\s']+" required>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email
-                                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                    <input type="email" name="email" id="email" placeholder="Your Email" maxlength="100" required>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label for="comment">Please leave your comments here:
-                                    <textarea name="comment" id="comment" placeholder="Your Comment" required></textarea>
+                                    <textarea name="comment" id="comment" placeholder="Your Comment" minlength="5" maxlength="500" required></textarea>
                                     </label>
                                 </div>
                                 <input type="hidden" name="possible_bot" id="possible_bot" value="true">

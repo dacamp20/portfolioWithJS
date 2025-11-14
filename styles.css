@@ -259,6 +259,28 @@ textarea:focus{
     outline: none;
     box-shadow: 0 0 8px black;
 }
+input:required,
+textarea:required{
+    border: 2px solid white;
+}
+input:user-invalid,
+textarea:user-invalid{
+    border: 2px solid red;
+    background-color: pink;
+}
+input:user-valid,
+textarea:valid{
+    border: 2px solid green;
+    background-color: lightgreen;
+}
+label[for]:has(input:required)::before{
+    content: "* ";
+    color: red;
+}
+label[for]:has(textarea:required)::before{
+    content: "* ";
+    color: red;
+}
 output {
     display: block;
     margin: 20px 0;
@@ -272,7 +294,6 @@ output {
 .info-message {
     color: blue;
 }
-
 .contact-info{
     text-align: left;
     & h3{
