@@ -14,6 +14,19 @@
 
 <body>
     <header>
+        <div class="theme-toggle-container">
+            <label for="themeToggle" class="theme-toggle-label">Thanksgiving Theme</label>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle" name="themeToggle" onclick="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+            <noscript>
+                <p style="color: red; font-weight: bold;">
+                    Using system default theme. Theme toggle requires JavaScript.
+                </p>
+            </noscript>
+        </div>
+        
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,14 +38,14 @@
                 <li><a href="form-with-js.html">Form With JS</a></li>               
             </ul>
         </nav>
+        
+        
+
+
         <h1>form-with-js</h1>
     </header>
 
     <main>
-        <label class="switch">
-            <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
-            <span class="slider"></span>
-        </label>
 
         <section id="MyLinks" class="contact">
             <div class="contact-container">

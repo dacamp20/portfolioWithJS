@@ -2,10 +2,12 @@
     /* Color variable */
     --light-background-color: #d0fbc7;
     --light-text-color: #3b3b3b;
-    --dark-background-color: #121212;
-    --dark-text-color: #fafafa;
     --light-text-box-color: white;
-    --dark-text-box-color: grey;
+    --light-input-box-color: lightgrey;
+    --dark-background-color: #121212;
+    --dark-text-color: #fafafa;    
+    --dark-text-box-color: grey;   
+    --dark-input-box-color: white;
     --accent-color: #a3c4f3;
     --accent-color-2: #ffcfe1;
     --surface-color: #ffffff;
@@ -16,10 +18,23 @@
 
     /*rounded corner scale*/
     --radius-size: 12px;
+
+    /*Thanksgiving theme variables*/
+    --thanksgiving-background-color: rgb(50, 25, 0); 
+    --thanksgiving-text-color: darkorange;
+    --thanksgiving-text-box-color: rgb(0, 55, 0);
+    --thanksgiving-input-box-color: rgb(255, 230, 184);
+
+    
+
+
 }
 
 :root {
     color-scheme: light dark;
+    color: light-dark(var(--light-text-color, black), var(--dark-text-color, white));
+    background-color: light-dark(var(--light-background-color, white), var(--dark-background-color, black));
+
 }
 
 html{
@@ -35,8 +50,6 @@ body {
     border: 6px solid black;
     border-radius: var(--radius-size, 12px);
     padding: 14px;  
-    color: light-dark(var(--light-text-color, black), var(--dark-text-color, white));
-    background-color: light-dark(var(--light-background-color, white), var(--dark-background-color, black));
 }
 
 main, header, footer {
@@ -103,7 +116,7 @@ h1, h2, h3, h4 {
     position: absolute;
     width: 6px;
     height: 100%;
-    background: light-dark(white, grey);
+    background: light-dark(var(--light-text-box-color, white), var(--dark-text-box-color, grey));
     top: 0;
     left: 50%;
     margin-left: -3px;
@@ -199,7 +212,7 @@ h1, h2, h3, h4 {
     z-index: 1;
     border-top: 14px solid transparent;
     border-bottom: 14px solid transparent;
-    border-left: 14px solid light-dark(white, grey);
+    border-left: 14px solid light-dark(var(--light-text-box-color, white), var(--dark-text-box-color, grey));
     right: -14px;
 }
 .right-container-arrow{
@@ -210,14 +223,14 @@ h1, h2, h3, h4 {
     z-index: 1;
     border-top: 14px solid transparent;
     border-bottom: 14px solid transparent;
-    border-right: 14px solid light-dark(white, grey);
+    border-right: 14px solid light-dark(var(--light-text-box-color, white), var(--dark-text-box-color, grey));
     left: -14px;
 }
 
 /*Contact page layout*/
 .contact{
     min-height: 30vh;
-    background-color: light-dark(white, grey);
+    background-color: light-dark(var(--light-text-box-color, white), var(--dark-text-box-color, grey));
     padding: 50px;
     text-align: center;
 }
@@ -251,7 +264,7 @@ input, textarea, button{
     padding: 12px;
     border-radius: 8px;
     border: none;
-    background-color: light-dark(lightgrey , white);
+    background-color: light-dark(var(--light-input-box-color) , var(--dark-input-box-color));
     color: black;
 }
 input:focus,
@@ -286,7 +299,7 @@ output {
     margin: 20px 0;
     padding: 12px;
     border-radius: 8px;
-    background-color: light-dark(lightgrey , white);
+    background-color: light-dark(var(--light-input-box-color) , var(--dark-input-box-color));
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -311,6 +324,63 @@ output {
         margin-bottom: 10px;
         color: light-dark(var(--light-text-color, black), var(--dark-text-color, white));
     }
+}
+
+/*Theme toggle*/
+.theme-toggle-container{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+.theme-toggle-label{
+    font-size: 1rem;
+    font-weight: 600;
+        color: light-dark(var(--light-text-color, black), var(--dark-text-color, white));
+}
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+
+    & input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: purple;
+    transition: 0.5s;
+    border-radius: 26px;
+}
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.switch input:checked + .slider{
+    background-color: darkorange;
+}
+.switch input:checked + .slider::before{
+    transform: translateX(24px);
 }
 
 /*Desktop: 1025px and up*/
@@ -391,7 +461,7 @@ output {
         left: 10px;
     }
     .left-container-arrow, .right-container-arrow{
-        border-right: 15px solid light-dark(white, grey);
+        border-right: 15px solid light-dark(var(--light-text-box-color, white), var(--dark-text-box-color, grey));
         border-left: 0;
         left: -14px;
     }

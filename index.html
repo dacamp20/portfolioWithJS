@@ -9,11 +9,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <script src="theme.js"></script>
 
 </head>
 
 <body>
     <header>
+        <div class="theme-toggle-container">
+            <label for="themeToggle" class="theme-toggle-label">Thanksgiving Theme</label>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle" name="themeToggle" onclick="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+            <noscript>
+                <p style="color: red; font-weight: bold;">
+                    Using system default theme. Theme toggle requires JavaScript.
+                </p>
+            </noscript>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -26,6 +40,7 @@
                 <li><a href="form-with-js.html">Form With JS</a></li>  
             </ul>
         </nav>
+                
         <h1>Daniel Campuzano's CS Portfolio</h1>
     </header>
 
