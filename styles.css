@@ -246,7 +246,7 @@ h1, h2, h3, h4 {
 .form-group{
     margin-bottom: 20px;
 }
-input, textarea{
+input, textarea, button{
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -287,12 +287,18 @@ output {
     padding: 12px;
     border-radius: 8px;
     background-color: light-dark(lightgrey , white);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 .error-message {
+    border: 1px solid red;
     color: red;
+    font-weight: 600;
 }
 .info-message {
+    border: 1px solid blue;
     color: blue;
+    font-weight: 600;
 }
 .contact-info{
     text-align: left;
